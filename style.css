@@ -1,3 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+.board-store {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+}
+
+.board-store h1 {
+    font-family: 'Poppins', sans-serif;
+}
 .styled-table {
     border-collapse: collapse;
     margin: 25px 0px;
