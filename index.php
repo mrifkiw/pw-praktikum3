@@ -96,6 +96,7 @@ $total_bahan = array(
 $table_header = ["No", "Nama Barang", "Berat (Kg)", "Berat (gram)", "Berat (mg)", "Berat (Liter)"];
 ?>
 
+<!-- File HTML -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
