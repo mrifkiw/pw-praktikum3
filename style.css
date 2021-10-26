@@ -42,3 +42,8 @@
 .styled-table tbody tr:last-of-type {
     border-bottom: 2px solid #A653F5;
 }
+
+.isUnavailable {
+    color: white;
+    background-color: red;
+}

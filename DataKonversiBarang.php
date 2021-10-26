@@ -8,19 +8,23 @@ class DataKonversiBarang {
     private int $gram = 0;
     private int $mg = 0;
     private int $liter = 0;
+    private int $stok;
     private bool $isLiter;
     private array $data_row;
+
 
     public function __construct(
         string $no,
         string $namaBarang,
         int $berat,
-        bool $isLiter
+        bool $isLiter,
+        int $stok
     )
     {
         $this->no = $no;
         $this->nama_barang = $namaBarang;
         $this->isLiter = $isLiter;
+        $this->stok = $stok;
         if ($this->isLiter){
             //1 liter = 1,328 Kg
             $this->liter = $berat;
@@ -41,57 +45,59 @@ class DataKonversiBarang {
             "{$this->kg} Kg",
             "{$this->gram} gram",
             "{$this->mg} mg",
-            "{$this->liter} liter"
+            "{$this->liter} liter",
+            "{$this->stok}"
         );
         
         
     }
 
-    public function getDataRow()
+    public function getDataCell()
     {
         return $this->data_row;
     }
+
+    
 }
 
 // SetUp Object Barang
 $Beras = new DataKonversiBarang(
     no:1,
+    stok: 34,
     namaBarang: "Beras",
     berat:130.5,
     isLiter: false
 );
 $IkanTongkol = new DataKonversiBarang(
     no:2,
+    stok:0,
     namaBarang: "Ikan Tongkol",
     berat:18.45,
     isLiter: false
 );
 $Kubis = new DataKonversiBarang(
     no:3,
+    stok:4,
     namaBarang: "Kubis",
     berat:8.35,
     isLiter: false
 );
 $Minyak = new DataKonversiBarang(
     no:4,
+    stok:0,
     namaBarang: "Minyak Goreng",
-    berat:218.35,
+    berat:8.35,
     isLiter: true
 );
 
-//convert data Objek barang to array
-$dataBeras = $Beras->getDataRow();
-$dataIkan = $IkanTongkol->getDataRow();
-$dataSayur = $Kubis->getDataRow();
-$dataMinyak = $Minyak->getDataRow();
-
 //getAll object and convert to array
-$total_bahan = array(
-    $dataBeras,
-    $dataIkan,
-    $dataSayur,
-    $dataMinyak
+$semuaBarang = array(
+    $Beras,
+    $IkanTongkol,
+    $Kubis,
+    $Minyak
 );
+
 // Array for naming table hader
-$table_header = ["No", "Nama Barang", "Berat (Kg)", "Berat (gram)", "Berat (mg)", "Berat (Liter)"];
+$table_header = ["No", "Nama Barang", "Berat (Kg)", "Berat (gram)", "Berat (mg)", "Berat (Liter)","Stok"];
 ?>

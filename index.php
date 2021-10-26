@@ -27,12 +27,20 @@
             </thead>
             <tbody>
                 <?php
-                    foreach($total_bahan as $dataRow){
+                    foreach($semuaBarang as $dataRow){
                         // Extract total bahan as data(array) each row
                         echo "<tr>";
-                        foreach($dataRow as $dataCell){
+                        foreach($dataRow->getDataCell() as $dataCell){
                             // Extract data row (array) to data each cell
-                            echo "<td>{$dataCell}</td>";
+                            // jika data barang kosong
+                            if ($dataCell == $dataRow->getDataCell()[6] && $dataCell == 0 ){
+                                echo "<td class=\"isUnavailable\">";
+                                echo "KOSONG";
+                            }else{
+                                echo "<td>";
+                                echo "{$dataCell}";
+                            }
+                            echo "</td>";
                         }
                         echo "</tr>";
                     }
