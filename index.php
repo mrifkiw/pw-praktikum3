@@ -1,4 +1,5 @@
 <?php
+// Warning!! This is only can be used for php@8.0.12
 class DataKonversiBarang {
     public string $no;
     public string $nama_barang;
@@ -33,34 +34,35 @@ class DataKonversiBarang {
     }
 }
 
+// SetUp Object Barang
 $Semen = new DataKonversiBarang(
     no:1,
     namaBarang: "Semen",
     berat_kg:100,
 );
-
 $CatTembok = new DataKonversiBarang(
     no:2,
     namaBarang: "Cat Tembok",
     berat_kg:25,
 );
 $Asbes = new DataKonversiBarang(
-    no:2,
+    no:3,
     namaBarang: "Cat Tembok",
     berat_kg:8.3,
 );
 
+//convert data Objek barang to array
 $dataSemen = $Semen->getDataRow();
 $dataCat = $CatTembok->getDataRow();
 $dataAsbes = $Asbes->getDataRow();
 
+//getAll object and convert to array
 $total_bahan = array(
     $dataSemen,
     $dataCat,
     $dataAsbes
 );
-
-
+// Array for naming table hader
 $table_header = ["No", "Nama Barang", "Berat (Kg)", "Berat (gram)", "Berat (mg)"];
 ?>
 
@@ -77,6 +79,7 @@ $table_header = ["No", "Nama Barang", "Berat (Kg)", "Berat (gram)", "Berat (mg)"
     <table class="styled-table">
         <thead>
             <tr>
+                <!-- Extract table header name -->
                 <?php
                     foreach ($table_header as $header){
                         echo "<th>{$header}</th>";
@@ -87,8 +90,10 @@ $table_header = ["No", "Nama Barang", "Berat (Kg)", "Berat (gram)", "Berat (mg)"
         <tbody>
             <?php
                 foreach($total_bahan as $dataRow){
+                    // Extract total bahan as data each row
                     echo "<tr>";
                     foreach($dataRow as $dataCell){
+                        // Extract data row (array) to data each cell
                         echo "<td>{$dataCell}</td>";
                     }
                     echo "</tr>";
